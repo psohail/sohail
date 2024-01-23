@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { PiNotePencilDuotone } from "react-icons/pi";
 
 import Tag from "../../ui/Tag";
-import { statusToTagColor } from "../../utils/helpers";
+import { statusToTagColor, subtractDates } from "../../utils/helpers";
 
 const DetailsBox = styled.section`
   background-color: var(--color-grey-0);
@@ -167,7 +167,6 @@ const CommonDetailsContainer = styled.div`
 `;
 
 const Grid = styled.div`
-  background-color: var(--color-grey-100);
   padding: 2rem;
   border-radius: var(--border-radius-lg);
 
@@ -179,6 +178,7 @@ const Grid = styled.div`
 const StyledImgBox = styled.figure`
   width: 100%;
   background-color: var(--color-grey-200);
+
   object-fit: cover;
 
   display: flex;
@@ -225,7 +225,25 @@ function ReportDetails({ report }) {
           </p>
         </div>
         <div>
-          <p>Some data</p>
+          {format(new Date(reportDate), "EEE, MMM dd, yyyy") ===
+          format(new Date(incidentDate), "EEE, MMM dd, yyyy") ? (
+            <p>This case was reported on the day of the incident</p>
+          ) : (
+            <p>
+              This case is reported{" "}
+              <strong
+                style={{
+                  color: "var(--color-grey-0)",
+                  backgroundColor: "var(--color-brand-700)",
+                  padding: "1px 7px",
+                  borderRadius: "var(--border-radius-lg)",
+                }}
+              >
+                {subtractDates(reportDate, incidentDate)} days
+              </strong>{" "}
+              after the Incident date
+            </p>
+          )}
         </div>
       </Header>
 
@@ -309,8 +327,8 @@ function ReportDetails({ report }) {
             <span>&mdash;</span>
           ) : (
             <Grid>
-              {images.map((image) => (
-                <ImgBox src={image} />
+              {images.map((image, idx) => (
+                <ImgBox src={image} key={idx} />
               ))}
             </Grid>
           )}
@@ -326,6 +344,12 @@ function ReportDetails({ report }) {
           {status === "probing" && <p>This case is under investigation</p>}
           {status === "solved" && <p>This case has been solved</p>}
           {status === "false" && <p>This is a false report</p>}
+          {status === "unrelated" && (
+            <p>
+              This report is unrelated to drug trafficking activities. Therefore
+              this report has been forwarded to the concerned agencies.
+            </p>
+          )}
         </CommonDetailsContainer>
       </Section>
     </DetailsBox>
