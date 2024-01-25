@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import SidebarNav from "./SidebarNav";
 import Logo from "./Logo";
 
-import Uploader from "../assets/Uploader";
+// import Uploader from "../assets/Uploader";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -23,7 +23,7 @@ function Sidebar() {
       <Logo />
       <SidebarNav />
 
-      <Uploader />
+      {/* <Uploader /> */}
     </StyledSidebar>
   );
 }
