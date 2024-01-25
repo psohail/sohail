@@ -1,6 +1,5 @@
 import PageArticle from "../../ui/PageArticle";
 import Footer from "../../ui/Footer";
-
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import HowToReportSection from "./HowToReportSection";

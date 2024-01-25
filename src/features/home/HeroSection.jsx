@@ -3,9 +3,9 @@ import { Link } from "react-scroll";
 import { HiArrowDown } from "react-icons/hi2";
 
 import ButtonLink from "../../ui/ButtonLink";
+import Navbar from "../navigation/Navbar";
 
 import heroImg from "../../assets/images/hero-section/hero-image.png";
-import Navbar from "../navigation/Navbar";
 import { useHomePageScroll } from "../../contexts/HomePageScrollContext";
 
 const StyledHeroSection = styled.section`
@@ -190,7 +190,7 @@ function HeroSection() {
             environment.
           </h2>
           <ButtonBox>
-            <ButtonLink to="/report-form" variation="primary" size="large">
+            <ButtonLink to="/report-form" $variation="primary" size="large">
               Report a Crime
             </ButtonLink>
             <StyledButtonWithArrowLink

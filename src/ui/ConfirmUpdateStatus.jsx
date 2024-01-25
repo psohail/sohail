@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Button from "./Button";
 import Heading from "./Heading";
+
 import { capitalizeFirstLetter } from "../utils/capitalizer";
 
 const StyledConfirmUpdate = styled.div`
@@ -46,14 +47,14 @@ function ConfirmUpdateStatus({
 
       <div>
         <Button
-          variation="secondary"
+          $variation="secondary"
           disabled={disabled}
           onClick={onCloseModal}
         >
           Cancel
         </Button>
         <Button
-          variation={type === "danger" ? "danger" : "primary"}
+          $variation={type === "danger" ? "danger" : "primary"}
           disabled={disabled}
           onClick={handleClick}
         >

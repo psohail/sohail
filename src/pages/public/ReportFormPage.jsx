@@ -1,6 +1,6 @@
-import CreateReportForm from "../../features/reports/CreateReportForm";
 import PageArticle from "../../ui/PageArticle";
 import HeadingGroup from "../../ui/HeadingGroup";
+import CreateReportForm from "../../features/reports/CreateReportForm";
 
 import { useScrollToTop } from "../../hooks/useScrollToTop";
 
@@ -14,7 +14,7 @@ function ReportFormPage() {
           <HeadingGroup
             heading="Report form"
             subHeading="Submit detailed information to report an incident effectively and securely"
-            textCenter
+            textCenter={true}
           />
         </div>
         <CreateReportForm />

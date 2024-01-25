@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
@@ -8,10 +9,9 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import ButtonGroup from "../../ui/ButtonGroup";
 
 import { useLogin } from "./useLogin";
-import { useNavigate } from "react-router";
 
 function LoginForm() {
-  const [email, setEmail] = useState("fake@email.com");
+  const [email, setEmail] = useState("demo@silentwitness.com");
   const [password, setPassword] = useState("12345678");
   const { login, isLoggingIn } = useLogin();
   const navigate = useNavigate();
@@ -57,15 +57,15 @@ function LoginForm() {
 
       <FormRowVertical>
         <ButtonGroup>
-          <Button grow="true" size="large" disabled={isLoggingIn}>
+          <Button $grow="true" size="large" disabled={isLoggingIn}>
             {!isLoggingIn ? "Login" : <SpinnerMini />}
           </Button>
           <Button
-            grow="true"
+            $grow="true"
             onClick={() => navigate(-1, { replace: true })}
             type="reset"
             size="large"
-            variation="secondary"
+            $variation="secondary"
             disabled={isLoggingIn}
           >
             Cancel

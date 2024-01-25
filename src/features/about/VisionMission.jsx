@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import HeadingGroup from "../../ui/HeadingGroup";
 
+import Introduction from "../../ui/Introduction";
+
 import { statements_data as statementsData } from "../../assets/data/data-statements";
 import { values_data as valuesData } from "../../assets/data/data-our-values";
-
-import Introduction from "../../ui/Introduction";
 
 const Grid = styled.div`
   display: grid;
@@ -29,7 +29,7 @@ const StyledStatement = styled.div`
   }
 
   ${(props) =>
-    props.icon === "true" &&
+    props.$icon === "true" &&
     css`
       grid-template-columns: 5rem 1fr;
       gap: 2rem;
@@ -95,7 +95,7 @@ const SmallHeading = styled.h5`
 
 function Statement({ statement }) {
   return (
-    <StyledStatement icon={statement.icon ? "true" : "false"}>
+    <StyledStatement $icon={statement.icon ? "true" : "false"}>
       {statement.icon && (
         <span>
           <statement.icon />

@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import Logo from "./Logo";
-import { MdOutlineFacebook } from "react-icons/md";
-import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { useNavigate } from "react-router";
+import styled from "styled-components";
+import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { MdOutlineFacebook } from "react-icons/md";
+
+import Logo from "./Logo";
 
 const StyledFooter = styled.footer`
   background-color: var(--color-grey50);
@@ -14,6 +15,7 @@ const FooterGrid = styled.div`
   max-width: 130rem;
   margin: 0 auto;
   padding: 12rem 5rem;
+  padding-bottom: 15rem;
   color: var(--color-grey-600);
 
   display: grid;
