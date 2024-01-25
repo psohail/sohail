@@ -83,7 +83,7 @@ const MobileNav = styled.div`
 
   background-color: rgba(255, 255, 255, 0.9);
 
-  height: 100dvh;
+  height: 100vh;
   width: 70%;
   z-index: 30;
   margin-left: auto;
@@ -142,7 +142,7 @@ const MobileNavList = styled.ul`
 
 const Overlay = styled.div`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
 
   overflow: hidden;
 

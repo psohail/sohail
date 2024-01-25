@@ -166,7 +166,6 @@ const Contact = styled.ul`
     @media (max-width: 32em) {
       font-size: 1.4rem;
       color: var(--color-grey-700);
-      margin-bottom: -2px;
     }
   }
 `;
