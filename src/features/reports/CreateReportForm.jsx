@@ -50,7 +50,7 @@ function CreateReportForm() {
   }
 
   function onError(errors) {
-    console.log("Errors are: ", errors);
+    console.error("Form errors are: ", errors);
   }
 
   return (

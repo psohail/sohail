@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
-import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
-import { MdOutlineFacebook } from "react-icons/md";
+import { Link } from "react-scroll";
 
 import Logo from "./Logo";
+
+import { footerLinks } from "../assets/data/data-social-links";
 
 const StyledFooter = styled.footer`
   background-color: var(--color-grey50);
@@ -15,7 +16,7 @@ const FooterGrid = styled.div`
   max-width: 130rem;
   margin: 0 auto;
   padding: 12rem 5rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
   color: var(--color-grey-600);
 
   display: grid;
@@ -107,6 +108,7 @@ const SocialLinks = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     & svg {
       width: 2.75rem;
@@ -242,8 +244,30 @@ const FooterList = styled.ul`
   }
 `;
 
+function FooterLink({ link, page }) {
+  const navigate = useNavigate();
+
+  if (page === "home")
+    return (
+      <li>
+        <Link to="hero" spy={true} smooth={true} offset={-120} duration={1000}>
+          <link.icon />
+        </Link>
+      </li>
+    );
+
+  if (page !== "home")
+    return (
+      <li onClick={() => navigate("/home")}>
+        <link.icon />
+      </li>
+    );
+}
+
 function Footer() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const page = location.pathname.slice(1);
 
   return (
     <StyledFooter>
@@ -253,15 +277,9 @@ function Footer() {
             <Logo />
           </LogoBox>
           <SocialLinks>
-            <li onClick={() => navigate("/home")}>
-              <MdOutlineFacebook />
-            </li>
-            <li onClick={() => navigate("/home")}>
-              <AiOutlineTwitter />
-            </li>
-            <li onClick={() => navigate("/home")}>
-              <AiOutlineInstagram />
-            </li>
+            {footerLinks.map((link) => (
+              <FooterLink key={link.id} link={link} page={page} />
+            ))}
           </SocialLinks>
 
           <Copyright>
@@ -324,20 +342,6 @@ function Footer() {
           </FooterList>
         </GridContainer>
       </FooterGrid>
-
-      {/* 
-      <SocialLinks>
-            <li>
-              <AiOutlineGithub />
-            </li>
-            <li>
-              <AiOutlineLinkedin />
-            </li>
-            <li>
-              <AiOutlineMail />
-            </li>
-      </SocialLinks>
-      */}
     </StyledFooter>
   );
 }

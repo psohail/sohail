@@ -65,7 +65,7 @@ const StyledStatement = styled.div`
     `}
 
   ${(props) =>
-    props.icon === "false" &&
+    props.$icon === "false" &&
     css`
       grid-template-rows: repeat(2, auto);
       align-items: start;
@@ -73,7 +73,7 @@ const StyledStatement = styled.div`
 
       & h5 {
         align-self: start;
-        font-size: 2.3rem;
+        font-size: 2rem;
         color: var(--color-grey-600);
       }
 
